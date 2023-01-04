@@ -21,13 +21,16 @@ import AvatarPicture from '../Assets/Avatar.jpg';
 import HeaderPicture from '../Assets/Header.jpg';
 
 const ProfilePage: React.FC = (props) => {
+  const { onEditClick } = props;
+  /*
   const [showResults, setShowResults] = useState(false);
-  const [username, setUsername] = useState('Natanael Martins');
+  const [username, setUsername] = useState('Natanael Martins'); 
   const [bio, setBio] = useState('Estudante de Sistemas de Informação :)');
   const [avatar, setAvatar] = useState<File | null>(null);
   const [header, setHeader] = useState<File | null>(null);
   const onClick = () => setShowResults(!showResults);
   const closeModal = () => setShowResults(false);
+  */
   
   return (
     <Container>
@@ -41,7 +44,8 @@ const ProfilePage: React.FC = (props) => {
       <ProfileData>
        
         <div>
-           { showResults ? (
+          <!--
+           ;{ showResults ? (
              <EditPage
               closeModal={closeModal}
               username={username}
@@ -54,8 +58,10 @@ const ProfilePage: React.FC = (props) => {
               setHeader={setHeader}
             />
          ) : (
-           <EditButton outlined onClick={onClick}>Editar Perfil</EditButton>
+           
          )}
+        -->
+          <EditButton outlined onClick={onEditClick}>Editar Perfil</EditButton>
         </div>
 
         <h1>{username ? username : 'Natanael Martins'}</h1>
