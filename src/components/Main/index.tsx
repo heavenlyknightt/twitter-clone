@@ -13,7 +13,11 @@ import {
   BellIcon, 
   EmailIcon } from './styles';
 
-const Main: React.FC = () => {
+interface Props {
+  onEditClick: () => void;
+}
+
+const Main: React.FC<Props> = (props) => {
   
   const { onEditClick } = props;
   
