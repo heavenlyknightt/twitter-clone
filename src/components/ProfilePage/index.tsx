@@ -44,23 +44,6 @@ const ProfilePage: React.FC = (props) => {
       <ProfileData>
        
         <div>
-          <!--
-           ;{ showResults ? (
-             <EditPage
-              closeModal={closeModal}
-              username={username}
-              setUsername={setUsername}
-              bio={bio}
-              setBio={setBio}
-              avatar={avatar}
-              setAvatar={setAvatar}
-              header={header}
-              setHeader={setHeader}
-            />
-         ) : (
-           
-         )}
-        -->
           <EditButton outlined onClick={onEditClick}>Editar Perfil</EditButton>
         </div>
 
