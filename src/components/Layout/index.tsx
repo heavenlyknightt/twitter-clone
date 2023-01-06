@@ -13,7 +13,7 @@ const Layout: React.FC = () => {
   const [bio, setBio] = useState('Estudante de Sistemas de Informação :)');
   const [avatar, setAvatar] = useState<File | null>(null);
   const [header, setHeader] = useState<File | null>(null);
-  const closeModal = () => setShowResults(false);
+  const closeModal = () => setShowEditPage(false);
   
   const [showEditPage, setShowEditPage] = useState(false);
   
