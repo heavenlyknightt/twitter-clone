@@ -27,13 +27,7 @@ interface Props {
 const ProfilePage: React.FC<Props> = (props) => {
   const { onEditClick } = props;
   /*
-  const [showResults, setShowResults] = useState(false);
-  const [username, setUsername] = useState('Natanael Martins'); 
-  const [bio, setBio] = useState('Estudante de Sistemas de Informação :)');
-  const [avatar, setAvatar] = useState<File | null>(null);
-  const [header, setHeader] = useState<File | null>(null);
-  const onClick = () => setShowResults(!showResults);
-  const closeModal = () => setShowResults(false);
+  
   */
   
   return (
