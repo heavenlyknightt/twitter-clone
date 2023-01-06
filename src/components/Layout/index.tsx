@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import MenuBar from '../MenuBar';
 import SideBar from '../SideBar';
 import Main from '../Main';
+import EditPage from '../EditPage';
 
 import { Container, Wrapper } from './styles';
 
