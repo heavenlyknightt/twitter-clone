@@ -20,7 +20,11 @@ import {
 import AvatarPicture from '../Assets/Avatar.jpg';
 import HeaderPicture from '../Assets/Header.jpg';
 
-const ProfilePage: React.FC = (props) => {
+interface Props {
+  onEditClick: () => void;
+}
+
+const ProfilePage: React.FC<Props> = (props) => {
   const { onEditClick } = props;
   /*
   const [showResults, setShowResults] = useState(false);
