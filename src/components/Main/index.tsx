@@ -14,6 +14,9 @@ import {
   EmailIcon } from './styles';
 
 const Main: React.FC = () => {
+  
+  const { onEditClick } = props;
+  
   return (
     <Container>
       <Header>
@@ -27,7 +30,7 @@ const Main: React.FC = () => {
         </ProfileInfo>
       </Header>
 
-       <ProfilePage /> 
+       <ProfilePage onEditClick={onEditClick} /> 
 
       <BottomMenu>
         <HomeIcon className="active" />
