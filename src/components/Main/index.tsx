@@ -33,7 +33,7 @@ const Main: React.FC<Props> = (props) => {
         </button>
 
         <ProfileInfo>
-          <strong>Natanael Martins</strong>
+          <strong>{username ? username : 'Natanael Martins'}</strong>
           <span>777 Tweets</span>
         </ProfileInfo>
       </Header>
