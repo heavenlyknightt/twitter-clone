@@ -15,11 +15,15 @@ import {
 
 interface Props {
   onEditClick: () => void;
+  username: string;
+  bio: string;
+  avatar: File | null | undefined;
+  header: File | null | undefined;
 }
 
 const Main: React.FC<Props> = (props) => {
   
-  const { onEditClick } = props;
+  const { onEditClick, username, bio, avatar, header } = props;
   
   return (
     <Container>
@@ -34,7 +38,13 @@ const Main: React.FC<Props> = (props) => {
         </ProfileInfo>
       </Header>
 
-       <ProfilePage onEditClick={onEditClick} /> 
+       <ProfilePage 
+         onEditClick={onEditClick} 
+         username={username}
+         bio={bio}
+         avatar={avatar}
+         header={header}
+        /> 
 
       <BottomMenu>
         <HomeIcon className="active" />
