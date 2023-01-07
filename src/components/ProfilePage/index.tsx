@@ -22,10 +22,14 @@ import HeaderPicture from '../Assets/Header.jpg';
 
 interface Props {
   onEditClick: () => void;
+  username: string;
+  bio: string;
+  avatar: File | null | undefined;
+  header: File | null | undefined;
 }
 
 const ProfilePage: React.FC<Props> = (props) => {
-  const { onEditClick } = props;
+  const { onEditClick, username, bio, avatar, header } = props;
   /*
   
   */
