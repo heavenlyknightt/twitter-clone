@@ -24,7 +24,12 @@ const Layout: React.FC = () => {
   return (
     <Container>
       <Wrapper>
-        <MenuBar /> 
+        <MenuBar
+          username={username}
+          bio={bio}
+          avatar={avatar}
+          header={header}
+          /> 
           <Main 
             onEditClick={handleEditClick}
             username={username}
