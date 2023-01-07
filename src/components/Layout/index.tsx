@@ -25,7 +25,13 @@ const Layout: React.FC = () => {
     <Container>
       <Wrapper>
         <MenuBar /> 
-          <Main onEditClick={handleEditClick} />
+          <Main 
+            onEditClick={handleEditClick}
+            username={username}
+            bio={bio}
+            avatar={avatar}
+            header={header}
+            />
           { showEditPage ? 
           <EditPage
               closeModal={closeModal}
