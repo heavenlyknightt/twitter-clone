@@ -38,9 +38,9 @@ const ProfilePage: React.FC<Props> = (props) => {
     <Container>
       <Banner>
         <Avatar>
-          <img src={AvatarPicture} alt="Avatar escolhido pelo usuário" />
+          <img src={avatar ? URL.createObjectURL(avatar) : AvatarPicture} alt="Avatar escolhido pelo usuário" />
         </Avatar>
-        <img src={HeaderPicture} alt="Header escolhida pelo usuário" />
+        <img src={header ? URL.createObjectURL(header) : HeaderPicture} alt="Header escolhida pelo usuário" />
       </Banner>
 
       <ProfileData>
@@ -49,11 +49,11 @@ const ProfilePage: React.FC<Props> = (props) => {
           <EditButton outlined onClick={onEditClick}>Editar Perfil</EditButton>
         </div>
 
-        <h1>{'Natanael Martins'}</h1>
+        <h1>{username ? username : 'Natanael Martins'}</h1>
         <h1>@Mercuryw1ng</h1>
 
         <p>
-          {'Estudante de Sistemas de Informação :)'}
+          {bio ? bio : 'Estudante de Sistemas de Informação :)'}
         </p>
 
         <ul>
