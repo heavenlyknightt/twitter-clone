@@ -1,8 +1,9 @@
 /* o useState será usado pelo script do botão */
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Feed from '../Feed';
-import EditPage from '../EditPage';
+/* import EditPage from '../EditPage'; */
 
 import { 
   Container, 
@@ -20,40 +21,34 @@ import {
 import AvatarPicture from '../Assets/Avatar.jpg';
 import HeaderPicture from '../Assets/Header.jpg';
 
-interface Props {
-  onEditClick: () => void;
-  username: string;
-  bio: string;
-  avatar: File | null | undefined;
-  header: File | null | undefined;
-}
-
-const ProfilePage: React.FC<Props> = (props) => {
-  const { onEditClick, username, bio, avatar, header } = props;
-  /*
+const ProfilePage: React.FC = () => {
   
-  */
+  const username = useSelector((state) => state.user.username);
+  const bio = useSelector((state) => state.user.bio);
+  const avatar = useSelector((state) => state.user.avatar);
+  const header = useSelector((state) => state.user.header);
+  const dispatch = useDispatch();
   
   return (
     <Container>
       <Banner>
         <Avatar>
-          <img src={avatar ? URL.createObjectURL(avatar) : AvatarPicture} alt="Avatar escolhido pelo usuário" />
+          <img src={avatar} alt="Avatar escolhido pelo usuário" />
         </Avatar>
-        <img src={header ? URL.createObjectURL(header) : HeaderPicture} alt="Header escolhida pelo usuário" />
+        <img src={header} alt="Header escolhida pelo usuário" />
       </Banner>
 
       <ProfileData>
        
         <div>
-          <EditButton outlined onClick={onEditClick}>Editar Perfil</EditButton>
+          <EditButton outlined onClick={() => dispatch(setModalOpen(true))}>Editar perfil</EditButton>
         </div>
 
-        <h1>{username ? username : 'Natanael Martins'}</h1>
+        <h1>{username}</h1>
         <h1>@Mercuryw1ng</h1>
 
         <p>
-          {bio ? bio : 'Estudante de Sistemas de Informação :)'}
+          {bio}
         </p>
 
         <ul>
