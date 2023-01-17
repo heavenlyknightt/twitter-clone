@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useSelector } from 'react-redux';
 import ProfilePage from '../ProfilePage';
 
 import { 
@@ -13,17 +13,12 @@ import {
   BellIcon, 
   EmailIcon } from './styles';
 
-interface Props {
-  onEditClick: () => void;
-  username: string;
-  bio: string;
-  avatar: File | null | undefined;
-  header: File | null | undefined;
-}
-
-const Main: React.FC<Props> = (props) => {
+const Main: React.FC = () => {
   
-  const { onEditClick, username, bio, avatar, header } = props;
+  const username = useSelector((state) => state.user.username);
+  const bio = useSelector((state) => state.user.bio);
+  const avatar = useSelector((state) => state.user.avatar);
+  const header = useSelector((state) => state.user.header);
   
   return (
     <Container>
@@ -33,13 +28,13 @@ const Main: React.FC<Props> = (props) => {
         </button>
 
         <ProfileInfo>
-          <strong>{username ? username : 'Natanael Martins'}</strong>
+          <strong>{username}</strong>
           <span>777 Tweets</span>
         </ProfileInfo>
       </Header>
 
        <ProfilePage 
-         onEditClick={onEditClick} 
+         onEditClick={() => dispatch(setModalOpen(true))}
          username={username}
          bio={bio}
          avatar={avatar}
