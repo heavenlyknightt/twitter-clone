@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+/* import React, { useState } from 'react'; */
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setUsername, setBio, setAvatar, setHeader } from './actions';
 
 import MenuBar from '../MenuBar';
 import SideBar from '../SideBar';
@@ -9,18 +12,25 @@ import { Container, Wrapper } from './styles';
 
 const Layout: React.FC = () => {
   
-  const [username, setUsername] = useState('Natanael Martins'); 
-  const [bio, setBio] = useState('Estudante de Sistemas de Informação :)');
-  const [avatar, setAvatar] = useState<File | null>(null);
-  const [header, setHeader] = useState<File | null>(null);
-  const closeModal = () => setShowEditPage(false);
-  
-  const [showEditPage, setShowEditPage] = useState(false);
-  
+  const username = useSelector((state) => state.user.username);
+  const bio = useSelector((state) => state.user.bio);
+  const avatar = useSelector((state) => state.user.avatar);
+  const header = useSelector((state) => state.user.header);
+  const modalOpen = useSelector((state) => state.modal.open);
+  const dispatch = useDispatch();
+
   const handleEditClick = () => {
-    setShowEditPage(true);
+    dispatch(setModalOpen(true));
   }
 
+  const handleSave = (username, bio, avatar, header) => {
+    dispatch(setUsername(username));
+    dispatch(setBio(bio));
+    dispatch(setAvatar(avatar));
+    dispatch(setHeader(header));
+    dispatch(setModalOpen(false));
+  }
+  
   return (
     <Container>
       <Wrapper>
@@ -32,23 +42,16 @@ const Layout: React.FC = () => {
           /> 
           <Main 
             onEditClick={handleEditClick}
+            />
+          { modalOpen ? 
+          <EditPage
+            closeModal={() => dispatch(setModalOpen(false))}
             username={username}
             bio={bio}
             avatar={avatar}
             header={header}
-            />
-          { showEditPage ? 
-          <EditPage
-              closeModal={closeModal}
-              username={username}
-              setUsername={setUsername}
-              bio={bio}
-              setBio={setBio}
-              avatar={avatar}
-              setAvatar={setAvatar}
-              header={header}
-              setHeader={setHeader}
-            /> : null }
+            onSave={handleSave}
+          /> : null }
         <SideBar />
       </Wrapper>
     </Container>
