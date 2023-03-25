@@ -2,6 +2,9 @@ import React from 'react';
 
 import ProfilePage from '../ProfilePage';
 
+import { useContext } from 'react';
+import { MessageContext } from '../Layout';
+
 import { 
   Container, 
   Header, 
@@ -14,6 +17,9 @@ import {
   EmailIcon } from './styles';
 
 const Main: React.FC = () => {
+  
+  const { value } = useContext(MessageContext);
+  
   return (
     <Container>
       <Header>
@@ -22,7 +28,7 @@ const Main: React.FC = () => {
         </button>
 
         <ProfileInfo>
-          <strong>Natanael Martins</strong>
+          <strong>{value}</strong>
           <span>777 Tweets</span>
         </ProfileInfo>
       </Header>
