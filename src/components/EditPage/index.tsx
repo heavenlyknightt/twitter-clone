@@ -41,13 +41,13 @@ const EditPage: React.FC<Props> = ({ closeModal, bio, setBio, avatar, setAvatar,
   
   const { value, setValue } = useContext(MessageContext);
   
-  // const [localUsername, setLocalUsername] = useState(username);
+  const [localUsername, setLocalUsername] = useState(value);
   const [localBio, setLocalBio] = useState(bio);
   const [localAvatar, setLocalAvatar] = useState(avatar);
   const [localHeader, setLocalHeader] = useState(header);
   
   const handleSave = () => {
-    // setUsername(localUsername);
+    setValue(localUsername);
     setBio(localBio);
     if (localAvatar !== undefined) setAvatar(localAvatar);
     if (localHeader !== undefined) setHeader(localHeader);
@@ -105,7 +105,7 @@ const EditPage: React.FC<Props> = ({ closeModal, bio, setBio, avatar, setAvatar,
           <FormInput
           maxLength={160}
           value={value}
-          onChange={(event) => setValue(event.target.value)}
+          onChange={(event) => setLocalUsername(event.target.value)}
           />
           <FormLabel>Nome</FormLabel>
         </Form>
