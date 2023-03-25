@@ -24,7 +24,7 @@ import HeaderPicture from '../Assets/Header.jpg';
 
 const ProfilePage: React.FC = (props) => {
   
-  const { value, setValue } = useContext(MyContext);
+  const { value, setValue } = useContext(MessageContext);
 
   const [showResults, setShowResults] = useState(false);
   // const [username, setUsername] = useState('Natanael Martins');
