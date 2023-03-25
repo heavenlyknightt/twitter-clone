@@ -9,13 +9,14 @@ import { Container, Wrapper } from './styles';
 
 export const MessageContext = createContext("");
 
-const valor = "teste";
-
 const Layout: React.FC = () => {
+  
+  const [value, setValue] = useState("initial value");
+  
   return (
     <Container>
       <Wrapper>
-        <MessageContext.Provider value={valor}>
+        <MessageContext.Provider value={{ value, setValue }}>
           <MenuBar />
             <Main />
           <SideBar />
