@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import { useContext } from 'react';
+import { MessageContext } from '../Layout';
+
 import { 
   Container,   
   CloseIcon,
@@ -31,7 +34,12 @@ interface Props {
   setHeader: (header: File | null) => void;
 }
 
-const EditPage: React.FC<Props> = ({ closeModal, username, setUsername, bio, setBio, avatar, setAvatar, header, setHeader }) => {
+
+// const EditPage: React.FC<Props> = ({ closeModal, username, setUsername, bio, setBio, avatar, setAvatar, header, setHeader }) => {
+
+const EditPage: React.FC<Props> = ({ closeModal, bio, setBio, avatar, setAvatar, header, setHeader }) => {
+  
+  const { value, setValue } = useContext(MyContext);
   
   const [localUsername, setLocalUsername] = useState(username);
   const [localBio, setLocalBio] = useState(bio);
@@ -39,7 +47,7 @@ const EditPage: React.FC<Props> = ({ closeModal, username, setUsername, bio, set
   const [localHeader, setLocalHeader] = useState(header);
   
   const handleSave = () => {
-    setUsername(localUsername);
+    // setUsername(localUsername);
     setBio(localBio);
     if (localAvatar !== undefined) setAvatar(localAvatar);
     if (localHeader !== undefined) setHeader(localHeader);
@@ -69,7 +77,7 @@ const EditPage: React.FC<Props> = ({ closeModal, username, setUsername, bio, set
                   style={{ display: "none" }}
                   onChange={(event) => {
                     if (event.target.files && event.target.files.length > 0) {
-                      setLocalAvatar(event.target.files[0]);
+                      setValue(event.target.files[0]);
                      }
                   }}
                 />
