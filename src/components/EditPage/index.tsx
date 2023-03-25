@@ -77,7 +77,7 @@ const EditPage: React.FC<Props> = ({ closeModal, bio, setBio, avatar, setAvatar,
                   style={{ display: "none" }}
                   onChange={(event) => {
                     if (event.target.files && event.target.files.length > 0) {
-                      setValue(event.target.files[0]);
+                      setLocalAvatar(event.target.files[0]);
                      }
                   }}
                 />
@@ -104,8 +104,8 @@ const EditPage: React.FC<Props> = ({ closeModal, bio, setBio, avatar, setAvatar,
         <Form>
           <FormInput
           maxLength={160}
-          value={localUsername}
-          onChange={(event) => setLocalUsername(event.target.value)}
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
           />
           <FormLabel>Nome</FormLabel>
         </Form>
