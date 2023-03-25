@@ -1,5 +1,7 @@
 /* o useState será usado pelo script do botão */
-import React, { useContext, useState } from 'react';
+import React, { useState, useContext } from 'react';
+
+// import React, { useContext, useState } from 'react';
 
 import Feed from '../Feed';
 import EditPage from '../EditPage';
@@ -21,10 +23,11 @@ import AvatarPicture from '../Assets/Avatar.jpg';
 import HeaderPicture from '../Assets/Header.jpg';
 
 const ProfilePage: React.FC = (props) => {
-  const message = useContext(MessageContext);
+  
+  const { value, setValue } = useContext(MyContext);
 
   const [showResults, setShowResults] = useState(false);
-  const [username, setUsername] = useState('Natanael Martins');
+  // const [username, setUsername] = useState('Natanael Martins');
   const [bio, setBio] = useState('Estudante de Sistemas de Informação :)');
   const [avatar, setAvatar] = useState<File | null>(null);
   const [header, setHeader] = useState<File | null>(null);
@@ -46,8 +49,6 @@ const ProfilePage: React.FC = (props) => {
            { showResults ? (
              <EditPage
               closeModal={closeModal}
-              username={username}
-              setUsername={setUsername}
               bio={bio}
               setBio={setBio}
               avatar={avatar}
@@ -60,8 +61,8 @@ const ProfilePage: React.FC = (props) => {
          )}
         </div>
 
-        <h1>{username ? username : 'Natanael Martins'}</h1>
-        <h1>@{message}</h1>
+        <h1>{value ? value : 'Natanael Martins'}</h1>
+        <h1>@Mercuryw1ng</h1>
 
         <p>
           {bio ? bio : 'Estudante de Sistemas de Informação :)'}
