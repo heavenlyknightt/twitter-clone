@@ -6,8 +6,15 @@ import Main from '../Main';
 
 import { Container, Wrapper } from './styles';
 
+interface MessageContextInterface {
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+}
 
-export const MessageContext = createContext();
+const MessageContext = React.createContext<MessageContextInterface>({
+  value: "",
+  setValue: () => {},
+});
 
 const Layout: React.FC = () => {
   
