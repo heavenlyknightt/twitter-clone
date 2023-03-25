@@ -18,20 +18,7 @@ import {
   ExitIcon,
 } from './styles';
 
-import AvatarPicture from '../Assets/Avatar.jpg';
-import HeaderPicture from '../Assets/Header.jpg';
-
-interface Props {
-  username: string;
-  bio: string;
-  avatar: File | null | undefined;
-  header: File | null | undefined;
-}
-
-const MenuBar: React.FC<Props> = (props) => {
-  
-  const { username, bio, avatar, header } = props;
-  
+const MenuBar: React.FC = () => {
   return (
     <Container>
       <Topside>
@@ -69,11 +56,11 @@ const MenuBar: React.FC<Props> = (props) => {
 
       <Botside>
         <Avatar>
-        <img src={avatar ? URL.createObjectURL(avatar) : AvatarPicture} alt="Avatar escolhido pelo usuário"/>
+        <img src="https://telegra.ph/file/2861a8a4acfe5e93c99f2.jpg" alt="Natanael Martins"/>
         </Avatar>
 
         <ProfileData>
-          <strong>{username ? username : 'Natanael Martins'}</strong>
+          <strong>Natanael Martins</strong>
           <span>@Mercuryw1ng</span>
         </ProfileData>
 
