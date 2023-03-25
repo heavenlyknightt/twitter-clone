@@ -39,7 +39,7 @@ interface Props {
 
 const EditPage: React.FC<Props> = ({ closeModal, bio, setBio, avatar, setAvatar, header, setHeader }) => {
   
-  const { value, setValue } = useContext(MyContext);
+  const { value, setValue } = useContext(MessageContext);
   
   const [localUsername, setLocalUsername] = useState(username);
   const [localBio, setLocalBio] = useState(bio);
