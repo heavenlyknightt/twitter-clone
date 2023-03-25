@@ -1,9 +1,10 @@
 /* o useState será usado pelo script do botão */
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useContext, useState } from 'react';
 
 import Feed from '../Feed';
-/* import EditPage from '../EditPage'; */
+import EditPage from '../EditPage';
+
+import { MessageContext } from '../Layout';
 
 import { 
   Container, 
@@ -13,42 +14,57 @@ import {
   LocationIcon, 
   CakeIcon,
   Followage,
-  EditButton,
-  Header,
-  Background
+  EditButton
 } from './styles';
 
 import AvatarPicture from '../Assets/Avatar.jpg';
 import HeaderPicture from '../Assets/Header.jpg';
 
-const ProfilePage: React.FC = () => {
-  
-  const username = useSelector((state) => state.user.username);
-  const bio = useSelector((state) => state.user.bio);
-  const avatar = useSelector((state) => state.user.avatar);
-  const header = useSelector((state) => state.user.header);
-  const dispatch = useDispatch();
+const ProfilePage: React.FC = (props) => {
+  const message = useContext(MessageContext);
+
+  const [showResults, setShowResults] = useState(false);
+  const [username, setUsername] = useState('Natanael Martins');
+  const [bio, setBio] = useState('Estudante de Sistemas de Informação :)');
+  const [avatar, setAvatar] = useState<File | null>(null);
+  const [header, setHeader] = useState<File | null>(null);
+  const onClick = () => setShowResults(!showResults);
+  const closeModal = () => setShowResults(false);
   
   return (
     <Container>
       <Banner>
         <Avatar>
-          <img src={avatar} alt="Avatar escolhido pelo usuário" />
+          <img src={avatar ? URL.createObjectURL(avatar) : AvatarPicture} alt="Avatar escolhido pelo usuário" />
         </Avatar>
-        <img src={header} alt="Header escolhida pelo usuário" />
+        <img src={header ? URL.createObjectURL(header) : HeaderPicture} alt="Header escolhida pelo usuário" />
       </Banner>
 
       <ProfileData>
        
         <div>
-          <EditButton outlined onClick={() => dispatch(setModalOpen(true))}>Editar perfil</EditButton>
+           { showResults ? (
+             <EditPage
+              closeModal={closeModal}
+              username={username}
+              setUsername={setUsername}
+              bio={bio}
+              setBio={setBio}
+              avatar={avatar}
+              setAvatar={setAvatar}
+              header={header}
+              setHeader={setHeader}
+            />
+         ) : (
+           <EditButton outlined onClick={onClick}>Editar Perfil</EditButton>
+         )}
         </div>
 
-        <h1>{username}</h1>
-        <h1>@Mercuryw1ng</h1>
+        <h1>{username ? username : 'Natanael Martins'}</h1>
+        <h1>@{message}</h1>
 
         <p>
-          {bio}
+          {bio ? bio : 'Estudante de Sistemas de Informação :)'}
         </p>
 
         <ul>
