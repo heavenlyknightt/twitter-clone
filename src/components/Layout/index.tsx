@@ -11,7 +11,7 @@ interface MessageContextInterface {
   setValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const MessageContext = React.createContext<MessageContextInterface>({
+export const MessageContext = React.createContext<MessageContextInterface>({
   value: "",
   setValue: () => {},
 });
