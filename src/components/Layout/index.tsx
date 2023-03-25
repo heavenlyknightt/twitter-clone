@@ -18,7 +18,7 @@ export const MessageContext = React.createContext<MessageContextInterface>({
 
 const Layout: React.FC = () => {
   
-  const [value, setValue] = useState("initial value");
+  const [value, setValue] = useState("Natanael");
   
   return (
     <Container>
