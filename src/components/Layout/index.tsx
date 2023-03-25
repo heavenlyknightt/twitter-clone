@@ -7,7 +7,7 @@ import Main from '../Main';
 import { Container, Wrapper } from './styles';
 
 
-export const MessageContext = createContext("");
+export const MessageContext = createContext();
 
 const Layout: React.FC = () => {
   
