@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 
 import { 
   Container,   
   CloseIcon,
-  EditButton,
   BannerDiv,
   BannerLabel,
   AvatarLabel,
@@ -21,24 +19,31 @@ import {
 import AvatarIMG from '../Assets/Avatar.jpg';
 import HeaderIMG from '../Assets/Header.jpg';
 
-const EditPage: React.FC = () => {
+interface Props {
+  closeModal: () => void;
+  username: string;
+  setUsername: (username: string) => void;
+  bio: string;
+  setBio: (bio: string) => void;
+  avatar: File | null | undefined;
+  setAvatar: (avatar: File | null) => void;
+  header: File | null | undefined;
+  setHeader: (header: File | null) => void;
+}
+
+const EditPage: React.FC<Props> = ({ closeModal, username, setUsername, bio, setBio, avatar, setAvatar, header, setHeader }) => {
   
-  const dispatch = useDispatch();
-  const username = useSelector((state) => state.user.username);
-  const bio = useSelector((state) => state.user.bio);
-  const avatar = useSelector((state) => state.user.avatar);
-  const header = useSelector((state) => state.user.header);
   const [localUsername, setLocalUsername] = useState(username);
   const [localBio, setLocalBio] = useState(bio);
   const [localAvatar, setLocalAvatar] = useState(avatar);
   const [localHeader, setLocalHeader] = useState(header);
   
   const handleSave = () => {
-    dispatch(setUsername(localUsername));
-    dispatch(setBio(localBio));
-    if (localAvatar !== undefined) dispatch(setAvatar(localAvatar));
-    if (localHeader !== undefined) dispatch(setHeader(localHeader));
-    dispatch(setModalOpen(false));
+    setUsername(localUsername);
+    setBio(localBio);
+    if (localAvatar !== undefined) setAvatar(localAvatar);
+    if (localHeader !== undefined) setHeader(localHeader);
+    closeModal();
   }
   
     return (
@@ -48,7 +53,7 @@ const EditPage: React.FC = () => {
        <Header>
       
         <button>
-        <CloseIcon onClick={() => dispatch(setModalOpen(false))} />
+        <CloseIcon onClick={closeModal} />
         </button>
         <h3 style={{marginLeft: "20px"}}>Editar perfil</h3>
         <SaveButton outlined onClick={handleSave}>Salvar</SaveButton>
