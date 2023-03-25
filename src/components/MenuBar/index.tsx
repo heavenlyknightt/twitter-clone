@@ -2,6 +2,9 @@ import React from 'react';
 
 import Button from '../Button';
 
+import { useContext } from 'react';
+import { MessageContext } from '../Layout';
+
 import { 
   Container, 
   Topside, 
@@ -19,6 +22,9 @@ import {
 } from './styles';
 
 const MenuBar: React.FC = () => {
+  
+  const { value } = useContext(MessageContext);
+  
   return (
     <Container>
       <Topside>
@@ -60,7 +66,7 @@ const MenuBar: React.FC = () => {
         </Avatar>
 
         <ProfileData>
-          <strong>Natanael Martins</strong>
+          <strong>{value}</strong>
           <span>@Mercuryw1ng</span>
         </ProfileData>
 
