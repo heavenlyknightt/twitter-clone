@@ -24,8 +24,8 @@ import HeaderIMG from '../Assets/Header.jpg';
 
 interface Props {
   closeModal: () => void;
-  username: string;
-  setUsername: (username: string) => void;
+  // username: string;
+  // setUsername: (username: string) => void;
   bio: string;
   setBio: (bio: string) => void;
   avatar: File | null | undefined;
