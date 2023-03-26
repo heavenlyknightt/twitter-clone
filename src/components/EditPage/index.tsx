@@ -33,7 +33,7 @@ interface Props {
 
 // const EditPage: React.FC<Props> = ({ closeModal, username, setUsername, bio, setBio, avatar, setAvatar, header, setHeader }) => {
 
-const EditPage: React.FC<Props> = ({ closeModal, bio, setBio, avatar, setAvatar, header, setHeader }) => {
+const EditPage: React.FC<Props> = ({ closeModal, avatar, setAvatar, header, setHeader }) => {
   
   const { username, setUsername, bio, setBio } = useContext(MessageContext);
   
