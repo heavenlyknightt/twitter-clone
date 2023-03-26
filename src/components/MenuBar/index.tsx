@@ -23,7 +23,7 @@ import {
 
 const MenuBar: React.FC = () => {
   
-  const { value } = useContext(MessageContext);
+  const { username } = useContext(MessageContext);
   
   return (
     <Container>
@@ -66,7 +66,7 @@ const MenuBar: React.FC = () => {
         </Avatar>
 
         <ProfileData>
-          <strong>{value}</strong>
+          <strong>{username}</strong>
           <span>@Mercuryw1ng</span>
         </ProfileData>
 
