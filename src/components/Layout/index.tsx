@@ -23,7 +23,7 @@ export const MessageContext = React.createContext<MessageContextInterface>({
 const Layout: React.FC = () => {
   
   const [username, setUsername] = useState("Natanael Martins");
-  const [bio, setBio] = setState("Estudante de Sistemas de Informação :)");
+  const [bio, setBio] = useState("Estudante de Sistemas de Informação :)");
   
   return (
     <Container>
