@@ -24,13 +24,13 @@ import HeaderPicture from '../Assets/Header.jpg';
 
 const ProfilePage: React.FC = (props) => {
   
-  const { username, setUsername, bio, setBio } = useContext(MessageContext);
+  const { username, setUsername, bio, setBio, avatar, setAvatar, header, setHeader } = useContext(MessageContext);
 
   const [showResults, setShowResults] = useState(false);
   // const [username, setUsername] = useState('Natanael Martins');
   // const [bio, setBio] = useState('Estudante de Sistemas de Informação :)');
-  const [avatar, setAvatar] = useState<File | null>(null);
-  const [header, setHeader] = useState<File | null>(null);
+  // const [avatar, setAvatar] = useState<File | null>(null);
+  // const [header, setHeader] = useState<File | null>(null);
   const onClick = () => setShowResults(!showResults);
   const closeModal = () => setShowResults(false);
   
@@ -49,10 +49,6 @@ const ProfilePage: React.FC = (props) => {
            { showResults ? (
              <EditPage
               closeModal={closeModal}
-              avatar={avatar}
-              setAvatar={setAvatar}
-              header={header}
-              setHeader={setHeader}
             />
          ) : (
            <EditButton outlined onClick={onClick}>Editar Perfil</EditButton>
