@@ -23,7 +23,7 @@ import {
 
 const MenuBar: React.FC = () => {
   
-  const { username } = useContext(MessageContext);
+  const { username, avatar } = useContext(MessageContext);
   
   return (
     <Container>
@@ -62,7 +62,7 @@ const MenuBar: React.FC = () => {
 
       <Botside>
         <Avatar>
-        <img src="https://telegra.ph/file/2861a8a4acfe5e93c99f2.jpg" alt="Natanael Martins"/>
+          <img src={avatar ? URL.createObjectURL(avatar) : AvatarIMG} alt="Avatar escolhido pelo usuário" />
         </Avatar>
 
         <ProfileData>
