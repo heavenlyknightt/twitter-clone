@@ -18,7 +18,7 @@ import {
 
 const Main: React.FC = () => {
   
-  const { value } = useContext(MessageContext);
+  const { username } = useContext(MessageContext);
   
   return (
     <Container>
@@ -28,7 +28,7 @@ const Main: React.FC = () => {
         </button>
 
         <ProfileInfo>
-          <strong>{value}</strong>
+          <strong>{username}</strong>
           <span>777 Tweets</span>
         </ProfileInfo>
       </Header>
