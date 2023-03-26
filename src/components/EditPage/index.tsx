@@ -24,10 +24,6 @@ import HeaderIMG from '../Assets/Header.jpg';
 
 interface Props {
   closeModal: () => void;
-  // username: string;
-  // setUsername: (username: string) => void;
-  bio: string;
-  setBio: (bio: string) => void;
   avatar: File | null | undefined;
   setAvatar: (avatar: File | null) => void;
   header: File | null | undefined;
@@ -39,16 +35,18 @@ interface Props {
 
 const EditPage: React.FC<Props> = ({ closeModal, bio, setBio, avatar, setAvatar, header, setHeader }) => {
   
-  const { value, setValue } = useContext(MessageContext);
+  const { username, setUsername, bio, setBio } = useContext(MessageContext);
   
-  const [localUsername, setLocalUsername] = useState(value);
+  const [localUsername, setLocalUsername] = useState(username);
   const [localBio, setLocalBio] = useState(bio);
+  
   const [localAvatar, setLocalAvatar] = useState(avatar);
   const [localHeader, setLocalHeader] = useState(header);
   
   const handleSave = () => {
-    setValue(localUsername);
+    setUsername(localUsername);
     setBio(localBio);
+    
     if (localAvatar !== undefined) setAvatar(localAvatar);
     if (localHeader !== undefined) setHeader(localHeader);
     closeModal();
