@@ -21,6 +21,8 @@ import {
   ExitIcon,
 } from './styles';
 
+import AvatarIMG from '../Assets/Avatar.jpg';
+
 const MenuBar: React.FC = () => {
   
   const { username, avatar } = useContext(MessageContext);
