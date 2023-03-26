@@ -13,6 +13,8 @@ interface MessageContextInterface {
   setBio: React.Dispatch<React.SetStateAction<string>>;
   avatar: File | null | undefined;
   setAvatar: React.Dispatch<React.SetStateAction<File>>;
+  header: File | null | undefined;
+  setHeader: React.Dispatch<React.SetStateAction<File>>;
 }
 
 export const MessageContext = React.createContext<MessageContextInterface>({
