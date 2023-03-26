@@ -12,9 +12,9 @@ interface MessageContextInterface {
   bio: string;
   setBio: React.Dispatch<React.SetStateAction<string>>;
   avatar: File | null | undefined;
-  setAvatar: React.Dispatch<React.SetStateAction<File | null>(null)>;
+  setAvatar: React.Dispatch<React.SetStateAction<File | null>>;
   header: File | null | undefined;
-  setHeader: React.Dispatch<React.SetStateAction<File | null>(null)>;
+  setHeader: React.Dispatch<React.SetStateAction<File | null>>;
 }
 
 export const MessageContext = React.createContext<MessageContextInterface>({
