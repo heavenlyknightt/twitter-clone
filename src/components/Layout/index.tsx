@@ -7,23 +7,28 @@ import Main from '../Main';
 import { Container, Wrapper } from './styles';
 
 interface MessageContextInterface {
-  value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  username: string;
+  setUsername: React.Dispatch<React.SetStateAction<string>>;
+  bio: string;
+  setBio: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const MessageContext = React.createContext<MessageContextInterface>({
-  value: "",
-  setValue: () => {},
+  username: "",
+  setUsername: () => {},
+  bio: "",
+  setBio: () => {},
 });
 
 const Layout: React.FC = () => {
   
-  const [value, setValue] = useState("Natanael Martins");
+  const [username, setUsername] = useState("Natanael Martins");
+  const [bio, setBio] = setState("Estudante de Sistemas de Informação :)");
   
   return (
     <Container>
       <Wrapper>
-        <MessageContext.Provider value={{ value, setValue }}>
+        <MessageContext.Provider value={{ username, setUsername, bio, setBio }}>
           <MenuBar />
             <Main />
           <SideBar />
