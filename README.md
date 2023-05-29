@@ -43,5 +43,5 @@ This project was inicially originated from Rocketseat's UI Clone series, you can
 - [x]  Create the `EditProfile` component
 - [x]  Allow visitors to change profile data (including avatar and header) inside `EditProfile`
     - [x]  Expand the changes to the others components
-- [ ]  Allow visitors to tweet
+- [ ]  Create the tweet component
 - [ ]  Implement a login system
